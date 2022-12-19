@@ -36,18 +36,6 @@ public class Prices
         }
         return 0.;
     }
-
-    /*
-    static String getName(String itemId)
-    {
-        if (prices.containsKey(itemId))
-        {
-            return prices.get(itemId).name;
-        }
-        return "";
-    }
-*/
-
     static String getName(String itemId)
     {
             try

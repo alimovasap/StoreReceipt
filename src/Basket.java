@@ -33,7 +33,6 @@ public class Basket
 
         try ( BufferedWriter writer = new BufferedWriter(new FileWriter("out.log")) )
         {
-            double priceVat = 0;
             double total = 0;
             double rand =(int)(Math.random() * 100000);
 
@@ -66,5 +65,33 @@ public class Basket
             throw new RuntimeException(e);
         }
         System.setOut(backupOut);
+    }
+
+    public void printInConsole()
+    {
+        LocalDate today = LocalDate.now();
+        LocalTime time = LocalTime.now();
+
+        double total = 0;
+        double rand =(int)(Math.random() * 100000);
+
+        System.out.printf("%24s\n","CASH RECEIPT");
+        System.out.printf("%24s\n", "Supermarket 123");
+        System.out.printf("%30s\n", "12 MilkyWay Galaxy/Earth");
+        System.out.printf("%28s\n","Tel. +123-456-789");
+        System.out.printf("%s %s %s %s %s %s %s %s\n","Cashier:No", rand, "DATE:", today.getDayOfMonth(), "/", today.getMonthValue(),"/", today.getYear());
+        System.out.printf("%24s %s %s %s %s %s\n","TIME:", time.getHour(), ":", time.getMinute(), ":", time.getSecond());
+        System.out.println("_______________________________________\n");
+        System.out.printf("%-10s %-10s %-10s %-10s\n","QTY", "DESCRIPTION", "PRICE", "TOTAL");
+        for (String i: basket.keySet())
+        {
+            Double finalPrice = Prices.getPrice(i) * Discount.getDiscount(i);
+            System.out.printf("%-10s %-11s %-10s %-10s\n", basket.get(i),Prices.getName(i),Prices.getPrice(i),finalPrice * basket.get(i));
+            total +=  Prices.getPrice(i) * basket.get(i);
+        }
+        System.out.println("_______________________________________");
+        System.out.printf("%s %24.2f","\nTAXABLE TOT. ", total);
+        System.out.printf("%s %24.2f","\nVAT 17%      ", total * vat);
+        System.out.printf("%s %24.2f","\nTOTAL        ", total +  total * vat);
     }
 }
