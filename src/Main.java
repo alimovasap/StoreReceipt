@@ -1,15 +1,12 @@
-public class Main
-{
-    public static void main(String[] args)
-    {
-        String[] basketstr = new String[] {"3-3", "2-5", "5-1", "6-8"};
+public class Main {
+    public static void main(String[] args) {
+        String[] basketstr = new String[]{"3-5", "2-8", "1-4", "6-10"};
         Basket basket = new Basket();
 
-        for (String i: basketstr)
-        {
-            basket.addItem(i.split("-")[0],Integer.valueOf(i.split("-")[1]));
+        for (String i : basketstr) {
+            basket.addItem(i.split("-")[0], Integer.valueOf(i.split("-")[1]));
         }
-        basket.printBasket();
-        basket.printInConsole();
+        PrintReceipt.print(basket);
+        FilePrintService.print(basket);
     }
 }
