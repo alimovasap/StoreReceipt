@@ -1,5 +1,3 @@
 public interface IPrintReceiptService {
-    static void print() {
-
-    }
+    void print();
 }

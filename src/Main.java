@@ -1,6 +1,6 @@
 public class Main {
     public static void main(String[] args) {
-        String[] basketstr = new String[]{"3-5", "2-8", "1-4", "6-10"};
+        String[] basketstr = new String[]{"3-5", "2-8", "1-4", "7-10"};
         Basket basket = new Basket();
 
         for (String i : basketstr) {

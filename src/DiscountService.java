@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 
 public class DiscountService {
-    static final double percentDiscount = 10.0; //10%
-    static final double fullPrice = 1.0; //100%
-    static final double DiscountPrice = fullPrice - (percentDiscount / 100); //90%
+    private static final double percentDiscount = 10.0; //10%
+    private static final double fullPrice = 1.0; //100%
+    private static final double DiscountPrice = fullPrice - (percentDiscount / 100); //90%
 
     static ArrayList<String> discountArray;
 

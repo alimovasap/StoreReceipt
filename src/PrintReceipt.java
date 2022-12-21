@@ -1,7 +1,7 @@
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-public class PrintReceipt implements IPrintReceiptService {
+public abstract class PrintReceipt implements IPrintReceiptService {
     public static void print(Basket basket) {
         LocalDate today = LocalDate.now();
         LocalTime time = LocalTime.now();
